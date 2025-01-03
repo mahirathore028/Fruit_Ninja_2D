@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrcutions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('bg_instructions.webp'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <h1>How to Play</h1>
+    CLICK ME!!!
+    <li> First sign up if you haven't. Next sign in and head to the game. </li>
+    <li> The game starts by default, so stay attentive. </li>
+    <li> You will have 5 lives, i.e. you can miss out 5 fruits to slice before the game overs!. </li>
+    <li> Just click anywhere on the screen and your knife is activated, cut as many fruits as possible. </li>
+    <li> Also beware that your knife (curser) doesn't even touch the bomb.
+        The game will get over then!
+    </li>
+    <li> Also remember, smaller the fruit, more the points!!! </li>
+    <li> You can also mute/unmute the music using the "m" key everywhere except the main menu! </li>
+    <li> HAPPY CUTTING...!!! </li>
+    <p><a href="index.html">Back to home screen</a></p>
+    </div>
+<script>
+let backgroundMusic;
+
+        function setupBackgroundMusic() {
+            backgroundMusic = new Audio('bg_music.mp3');
+            backgroundMusic.loop = true;
+            backgroundMusic.volume = 0.3;
+        
+            document.addEventListener('click', function startAudio() {
+                backgroundMusic.play()
+                    .catch(e => console.log("Audio play failed:", e));
+                document.removeEventListener('click', startAudio);
+            }, { once: true });
+        }
+        
+        function toggleBackgroundMusic() {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+            } else {
+                backgroundMusic.pause();
+            }
+        }
+        
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'm' || e.key === 'M') {
+                toggleBackgroundMusic();
+            }
+        });
+        
+        window.addEventListener('load', () => {
+            setupBackgroundMusic();
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRUIT NINJA 2D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="bgMusic" loop autoplay>
+    <source src="bg_music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="center-content">
+    <div class="title">
+      <div class="main-title">FRUIT NINJA</div>
+      <div class="sub-title">2D</div>
+    </div>
+    <div class="button-container">
+      <button class="button question-btn" onclick="showInstructions()">?</button>      
+      <button class="button play-btn" onclick="goToAuthentication()">Play</button>
+      <button class="button volume-btn" id="volumeButton" onclick="toggleVolume()">🔊</button>
+    </div>
+  </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
